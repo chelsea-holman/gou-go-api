@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       post 'login', to: 'sessions#login', as: :login
-      resources :spaces, only: [ :index ]
+      resources :spaces, only: [ :index, :show, :create, :destroy, :update ]
     end
   end
 end
