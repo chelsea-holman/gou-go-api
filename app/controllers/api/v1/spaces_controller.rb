@@ -2,7 +2,16 @@ class Api::V1::SpacesController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
   before_action :set_space, only: [:show, :update]
   def index
-    @spaces = Space.all
+    if params[:category].present?
+      @spaces = Space.where(category: params[:category])
+    else
+      @spaces = Space.all
+    end
+  end
+
+  def show
+    @space = Space.find(params[:id])
+    # p @space
   end
 
   def show
