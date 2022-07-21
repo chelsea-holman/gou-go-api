@@ -3,7 +3,7 @@ class Api::V1::SpacesController < Api::V1::BaseController
     @spaces = Space.all
   end
   #config/routes.rb
-root to: "categories
+root to: categories
 resources :categories
 
 #app/controllers/categories_controller.rb
