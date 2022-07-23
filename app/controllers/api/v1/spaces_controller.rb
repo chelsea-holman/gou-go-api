@@ -1,5 +1,5 @@
 class Api::V1::SpacesController < Api::V1::BaseController
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
   before_action :set_space, only: [:show, :update]
   def index
     if params[:category].present?
