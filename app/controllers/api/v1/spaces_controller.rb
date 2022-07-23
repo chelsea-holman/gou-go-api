@@ -11,6 +11,7 @@ class Api::V1::SpacesController < Api::V1::BaseController
 
     else
       @spaces = Space.published
+    end
   end
 
   def show
@@ -60,7 +61,6 @@ class Api::V1::SpacesController < Api::V1::BaseController
   end
 
   def render_error
-    render json: { errors: @space.errors.full_messages },
-    status: :unprocessable_entity
+    render json: { errors: @space.errors.full_messages }, status: :unprocessable_entity
   end
 end
