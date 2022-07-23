@@ -5,15 +5,18 @@ Rails.application.routes.draw do
       post 'login', to: 'sessions#login', as: :login
       resources :spaces, only: [ :index, :show, :create, :destroy, :update ] do
         member do
+          post 'upload'
           post 'toggle_favorite', to: 'spaces#toggle_favorite'
         end
       end
       resources :users, only: [ :index] do
         member do
           get 'profile'
+          
         end
+
       end
     end
-  # end
+
   end
 end
