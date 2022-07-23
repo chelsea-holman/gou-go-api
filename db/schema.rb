@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_21_121314) do
+ActiveRecord::Schema.define(version: 2022_07_23_094046) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,15 @@ ActiveRecord::Schema.define(version: 2022_07_21_121314) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "space_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["space_id"], name: "index_favorites_on_space_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "spaces", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -53,6 +62,9 @@ ActiveRecord::Schema.define(version: 2022_07_21_121314) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "features", default: [], array: true
+    t.string "sub_category"
+    t.float "longitude"
+    t.float "latitude"
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,4 +76,6 @@ ActiveRecord::Schema.define(version: 2022_07_21_121314) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorites", "spaces"
+  add_foreign_key "favorites", "users"
 end

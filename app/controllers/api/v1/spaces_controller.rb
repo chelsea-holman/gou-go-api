@@ -4,6 +4,9 @@ class Api::V1::SpacesController < Api::V1::BaseController
   def index
     if params[:category].present?
       @spaces = Space.where(category: params[:category])
+    elsif params[:search].present?
+      sql_query = 'name ILIKE :search OR sub_category ILIKE :search'
+      @spaces = Space.where(sql_query, search: "%#{params[:search]}%")
     else
       @spaces = Space.all
     end
@@ -11,11 +14,12 @@ class Api::V1::SpacesController < Api::V1::BaseController
 
   def show
     @space = Space.find(params[:id])
+    @recommended_spaces = Space.where(category: @space.category).sample(3)
+    @favorited = @current_user.favorited?(@space)
+    p "@favorited #{@favorited}"
     # p @space
   end
 
-  def show
-  end
 
   def create
     @space = Space.new(space_params)
@@ -33,6 +37,13 @@ class Api::V1::SpacesController < Api::V1::BaseController
     else
       render json: { err: 'fail to upload' }
     end
+  end
+
+  def toggle_favorite
+    @space = Space.find_by(id: params[:id])
+    @current_user.favorited?(@space) ? @current_user.unfavorite(@space) : @current_user.favorite(@space)
+    @favorited = @current_user.favorited?(@space)
+    @recommended_spaces = Space.where(category: @space.category).sample(3)
   end
 
   private
