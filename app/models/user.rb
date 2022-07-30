@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :favorites
+  has_many :reviews
   has_many :favorite_spaces, through: :favorites, source: :space
 
   def favorite(space)
