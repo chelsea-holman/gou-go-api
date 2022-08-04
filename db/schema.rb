@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_02_084811) do
+ActiveRecord::Schema.define(version: 2022_08_04_134132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2022_08_02_084811) do
     t.text "comment"
     t.float "rating"
     t.bigint "user_id", null: false
-    t.string "image"
     t.bigint "space_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -75,10 +74,10 @@ ActiveRecord::Schema.define(version: 2022_08_02_084811) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "features", default: [], array: true
+    t.boolean "published", default: false
     t.string "sub_category"
     t.float "longitude"
     t.float "latitude"
-    t.boolean "published", default: false
   end
 
   create_table "users", force: :cascade do |t|

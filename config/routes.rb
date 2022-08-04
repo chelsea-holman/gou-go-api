@@ -9,7 +9,11 @@ Rails.application.routes.draw do
           post 'toggle_favorite', to: 'spaces#toggle_favorite'
           # get 'featured_review'
         end
-        resources :reviews, only: [:index, :create]
+        resources :reviews, only: [:index, :create] do
+          member do
+            post 'upload'
+          end
+        end
       end
       resources :users, only: [ :index] do
         member do
