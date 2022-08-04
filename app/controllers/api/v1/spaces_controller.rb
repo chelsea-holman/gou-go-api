@@ -16,17 +16,23 @@ class Api::V1::SpacesController < Api::V1::BaseController
 
   def show
     @space = Space.find(params[:id])
-    @recommended_spaces = Space.where(category: @space.category).sample(3)
+    @recommended_spaces = Space.published.where(category: @space.category).sample(3)
     @favorited = @current_user.favorited?(@space)
-    p "@favorited #{@favorited}"
-    # p @space
-  end
+    if Review.where(space_id: params[:id]).length.positive?
+      @review = Review.where(space_id: params[:id]).last
+      @review_count = Review.where(space_id: params[:id]).length
 
+    else
+      @review_count = Review.where(space_id: params[:id]).length
+    end
+  end
 
   def create
     @space = Space.new(space_params)
     if @space.save
-      render :show, status: :created
+      # @review = Review.last
+      # render :show, status: :created
+      render json: { space: { id: @space.id } }
     else
       render_error
     end
@@ -49,6 +55,12 @@ class Api::V1::SpacesController < Api::V1::BaseController
     @recommended_spaces = Space.where(category: @space.category).sample(3)
   end
 
+  def featured_review
+    # need to change this to reflect a random review selected from reviews with the highest rating for that particular space
+    # keep in mind that the highest rating available may not be 5
+    @review = Review.last
+  end
+
 
   private
 
@@ -57,7 +69,7 @@ class Api::V1::SpacesController < Api::V1::BaseController
   end
 
   def space_params
-    params.require(:space).permit(:name, :address, :category, :image, :access, {:features => []}, {:categories =>[]}, :image)
+    params.require(:space).permit(:name, :address, :category, :image, :access, {:features => []}, :category, :sub_category, :image)
   end
 
   def render_error
