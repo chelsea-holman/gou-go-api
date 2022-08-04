@@ -9,10 +9,10 @@ Favorite.destroy_all
 Space.destroy_all
 require 'open-uri'
 
-charlies = Space.create(name: 'Charlies', address: '上海常熟路89', category: 'Restaurant', access: 'indoor and outdoor', features: 'dog bowl', longitude: 121.447994, latitude: 31.216996 )
+charlies = Space.create(name: 'Charlies', address: '上海常熟路89', category: 'restaurant', access: 'indoor and outdoor', features: 'dog bowl', longitude: 121.447994, latitude: 31.216996 )
 charlies.image.attach(io: URI.open('http://www.smartshanghai.com/uploads/articles/2019/05/4341557460180.jpg'), filename: 'charlies')
 
-tacolicious = Space.create(name: 'Tacolicious', address: '上海余姚路34', category: 'Restaurant', access: 'outdoor', features: 'dog bowl', longitude: 121.443727, latitude: 31.236356)
+tacolicious = Space.create(name: 'Tacolicious', address: '上海余姚路34', category: 'restaurant', access: 'outdoor', features: 'dog bowl', longitude: 121.443727, latitude: 31.236356)
 tacolicious.image.attach(io: URI.open('https://img.timeoutshanghai.com/202004/20200417033424100_Large.jpg'), filename: 'tacolicious')
 
 westbund = Space.create(name: 'West Bund', address: '龙腾大道3268号', category: 'park', access: 'outdoor', features: '', longitude: 121.463961, latitude: 31.181555)
