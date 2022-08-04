@@ -12,9 +12,20 @@ class Api::V1::ReviewsController < Api::V1::BaseController
     @review.space_id = Space.find(params[:space_id]).id
     @review.save
     if @review.save
-      render :index, status: :created
+      # render :index, status: :created
+      render json: @review
     else
       render_error
+    end
+  end
+
+  def upload
+    # @review = Review.find_by(space_id: params[:space_id])
+    @review = Review.find(params[:id])
+    if @review.image.attach(params.require(:file))
+      render json: { msg: 'photo uploaded' }
+    else
+      render json: { err: 'fail to upload' }
     end
   end
 
