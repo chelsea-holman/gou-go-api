@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_23_103805) do
+ActiveRecord::Schema.define(version: 2022_08_04_134132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,18 @@ ActiveRecord::Schema.define(version: 2022_07_23_103805) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.text "comment"
+    t.float "rating"
+    t.bigint "user_id", null: false
+    t.bigint "space_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
+    t.index ["space_id"], name: "index_reviews_on_space_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "spaces", force: :cascade do |t|
     t.string "name"
     t.string "address"
@@ -79,4 +91,6 @@ ActiveRecord::Schema.define(version: 2022_07_23_103805) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "spaces"
   add_foreign_key "favorites", "users"
+  add_foreign_key "reviews", "spaces"
+  add_foreign_key "reviews", "users"
 end
