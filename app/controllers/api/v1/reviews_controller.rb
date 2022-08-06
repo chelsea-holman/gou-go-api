@@ -1,6 +1,8 @@
 class Api::V1::ReviewsController < Api::V1::BaseController
   def index
     @reviews = Review.all.where(space_id: params[:space_id])
+    # @reviews = @reviews.sort_by { |s| @reviews.date.strptime(s, '%d/%m/%Y') }.reverse
+
   end
 
 
