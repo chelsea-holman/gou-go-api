@@ -92,3 +92,4 @@ luneurs.image.attach(io: URI.open('https://tse2-mm.cn.bing.net/th/id/OIP-C.Ry0xj
 
 puts "Created #{Space.count} spaces"
 Space.update_all published: true
+
