@@ -69,7 +69,7 @@ class Api::V1::SpacesController < Api::V1::BaseController
   end
 
   def space_params
-    params.require(:space).permit(:name, :address, :category, :image, :access, {:features => []}, :category, :sub_category, :image)
+    params.require(:space).permit(:name, :address, :category, :latitude, :longitude, :image, :access, {:features => []}, :category, :sub_category, :image)
   end
 
   def render_error
