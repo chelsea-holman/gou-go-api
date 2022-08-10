@@ -10,6 +10,7 @@ json.space do
   json.favorited @favorited
   json.image @space.image.service_url if @space.image.attached?
   json.featured_review @review
+  json.user @review.user if @review.present?
   json.review_count @review_count
   # json.review_avg @space.review_avg
 end
