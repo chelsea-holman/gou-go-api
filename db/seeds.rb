@@ -11,7 +11,7 @@ Space.destroy_all
 
 require 'open-uri'
 
-charlies = Space.create(name: 'Charlies', address: '上海常熟路89', category: 'Restaurant', sub_category: 'American', access: 'indoor and outdoor', features: ['dog_bowl', 'indoor', 'outdoor', 'dog food'], longitude: 121.447994,latitude: 31.216996 )
+charlies = Space.create(name: 'Charlies (Changshu Lu)', address: '上海常熟路89', category: 'Restaurant', sub_category: 'American', access: 'indoor and outdoor', features: ['dog_bowl', 'indoor', 'outdoor', 'dog food'], longitude: 121.447994,latitude: 31.216996 )
 charlies.image.attach(io: URI.open('http://www.smartshanghai.com/uploads/articles/2019/05/4341557460180.jpg'), filename: 'charlies')
 
 tacolicious = Space.create(name: 'Tacolicious', address: '上海余姚路34', category: 'Restaurant', sub_category: 'Mexican', access: 'outdoor', features: ['dog_bowl', 'indoor', 'outdoor'], longitude: 121.443727,latitude: 31.236356)
@@ -89,7 +89,73 @@ zhujiajiao.image.attach(io: URI.open('https://tse4-mm.cn.bing.net/th/id/OIP-C.GW
 dongtan = Space.create(name: 'Dongtan Wetland Park', address: '东旺中路', category: 'Park', access: 'outdoor', features: ['outdoor'], longitude: 121.910484,latitude: 31.513998 )
 dongtan.image.attach(io: URI.open('https://youimg1.c-ctrip.com/target/fd/tg/g1/M04/7D/2C/CghzfVWw2ZyABgtUAA7A82PayUA950_C_750_500.jpg?proc=source%2ftrip'), filename: 'dongtan')
 
-luneurs = Space.create(name: 'Luneurs', address: '番禺路381号', category: 'Cafe', access: 'outdoor', features: ['dog_bowl', 'indoor', 'outdoor'], longitude: 121.43049,latitude: 31.204387 )
+luneurs = Space.create(name: 'Luneurs (Xingfu Li)', address: '番禺路381号', category: 'Cafe', access: 'outdoor', features: ['dog_bowl', 'indoor', 'outdoor'], longitude: 121.43049,latitude: 31.204387 )
 luneurs.image.attach(io: URI.open('https://tse2-mm.cn.bing.net/th/id/OIP-C.Ry0xjGzwlEdBDTkcljRWGQHaE8?pid=ImgDet&rs=1'), filename: 'luneurs')
+
+luneurs_huashan = Space.create(name: 'Luneurs (Huashan Lu)', address: '华山路888号', category: 'Cafe', access: 'outdoor', features: ['dog_bowl', 'indoor', 'outdoor'], longitude: 121.438727,latitude: 31.213066 )
+luneurs_huashan.image.attach(io: URI.open('https://tse2-mm.cn.bing.net/th/id/OIP-C.Ry0xjGzwlEdBDTkcljRWGQHaE8?pid=ImgDet&rs=1'), filename: 'luneurs')
+
+luneurs_mix = Space.create(name: 'Luneurs (MixC)', address: '万象城1楼, 吴中路1799号', category: 'Cafe', access: 'outdoor', features: ['dog_bowl', 'indoor', 'outdoor'], longitude: 121.367148,latitude: 31.169475 )
+luneurs_mix.image.attach(io: URI.open('https://tse2-mm.cn.bing.net/th/id/OIP-C.Ry0xjGzwlEdBDTkcljRWGQHaE8?pid=ImgDet&rs=1'), filename: 'luneurs')
+
+alimentari_anfu = Space.create(name: 'Alimentari (Anfu Lu)', address: '安福路158号', category: 'Restaurant', sub_category: 'Italian', access: 'outdoor', features: ['dog_bowl', 'outdoor'], longitude: 121.444823,latitude: 31.214358 )
+alimentari_anfu.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/31/0df0ba8c-93fe-4e24-b5af-8b91471180d7.jpeg.680.0.webp'), filename: 'alimentari_anfu')
+
+alimentari_piccolo = Space.create(name: 'Alimentari Piccolo', address: '番禺路390号103室内A区', category: 'Restaurant', sub_category: 'Italian', access: 'outdoor', features: ['dog_bowl', 'outdoor'], longitude: 121.429697,latitude: 31.203887 )
+alimentari_piccolo.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2021/01/16/b29d3f4f-142e-4655-b8a3-6d87d42164fc.jpeg.680.0.webp'), filename: 'alimentari_piccolo')
+
+bandit = Space.create(name: 'BANDIT (Julu Lu)', address: '巨鹿路423号', category: 'Bar', access: 'outdoor', features: ['dog_bowl','outdoor', 'indoor'], longitude: 121.457444,latitude: 31.222029 )
+bandit.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2021/05/20/1f42c598-95af-481b-975e-8837e9da21a4.jpeg.680.0.webp'), filename: 'bandit')
+
+bar_centrale = Space.create(name: 'Bar Centrale', address: '延平路135号', category: 'Bar', access: 'outdoor', features: ['dog_bowl', 'outdoor', 'indoor'], longitude: 121.440648,latitude: 31.229324 )
+bar_centrale.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/31/45cee06c-e6a1-47f7-9560-e0adf525805b.jpeg.680.0.webp'), filename: 'bar_centrale')
+
+bites_brews = Space.create(name: 'Bites x Brews', address: '武定路999号', category: 'Restaurant', sub_category: 'Western', access: 'outdoor', features: ['dog_bowl', 'outdoor', 'indoor'], longitude: 121.443062,latitude: 31.230022 )
+bites_brews.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/11/18/1dd59f06-c19f-4064-91a4-4600d4d0c79d.jpeg.680.0.webp'), filename: 'bites_brews')
+
+hugo = Space.create(name: 'Hugo Husky House', address: '永嘉路227', category: 'Cafe', access: 'outdoor', features: ['dog_bowl', 'outdoor', 'indoor'], longitude: 121.461019,latitude: 31.209927 )
+hugo.image.attach(io: URI.open('https://img.timeoutshanghai.com/201910/20191023054825760.jpg'), filename: 'hugo')
+
+lucky_mart = Space.create(name: 'Lucky Mart', address: '富民路158号', category: 'Bar', access: 'outdoor', features: ['dog_bowl', 'outdoor', 'indoor'], longitude: 121.451217,latitude: 31.218873 )
+lucky_mart.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/21/e11437f8-9071-4f62-abe8-0fa664eb354d.jpeg.1200.0.webp'), filename: 'lucky_mart')
+
+pass_residence = Space.create(name: 'PASS RESIDENCE', address: '巨鹿路318号', category: 'Restaurant', sub_category: 'Italian', access: 'outdoor', features: ['dog_bowl', 'indoor'], longitude: 121.458134,latitude: 31.222519 )
+pass_residence.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/30/60eb456e-f698-438a-af58-c29b80a041d4.jpeg.1200.0.webp'), filename: 'pass_residence')
+
+pho_to = Space.create(name: 'Pho To Shop', address: '武定路974号', category: 'Restaurant', sub_category: 'Vietnamese',access: 'outdoor', features: ['dog_bowl', 'outdoor', 'indoor'], longitude: 121.443148,latitude: 31.230328 )
+pho_to.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/22/840d69b2-fb83-4182-908f-d4b949432515.jpeg.1360.0.webp'), filename: 'pho_to')
+
+porcellino = Space.create(name: 'Porcellino', address: '愚园路753号', category: 'Restaurant', sub_category: 'Italian', access: 'outdoor', features: ['dog_bowl', 'outdoor', 'indoor'], longitude: 121.434723,latitude: 31.220018 )
+porcellino.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/31/0f6fb1b7-cdda-465f-b0d9-64f2160265d6.jpeg.800.0.webp'), filename: 'porcellino')
+
+solana = Space.create(name: 'Solana', address: '武定路1085号', category: 'Restaurant', sub_category: 'Spanish', access: 'outdoor', features: ['dog_bowl', 'indoor'], longitude: 121.442039,latitude: 31.229661 )
+solana.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/31/74ab72c0-2040-48b8-96ef-b45e7c8c4a6f.jpeg.1360.0.webp'), filename: 'solana')
+
+sumerian = Space.create(name: 'Sumerian', address: '陕西北路415号', category: 'Cafe', access: 'outdoor', features: ['dog_bowl', 'indoor'], longitude: 121.452921,latitude: 31.230266 )
+sumerian.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/30/7f9eec20-ca04-48e7-b474-71347e251dda.jpeg.800.0.webp'), filename: 'sumerian')
+
+tres_perros = Space.create(name: 'Tres Perros', address: '富民路148弄', category: 'Restaurant', sub_category: 'Spanish', access: 'outdoor', features: ['dog_bowl', 'indoor'], longitude: 121.451566,latitude: 31.217361 )
+tres_perros.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/22/3bf8b933-f692-4208-bcb6-766a2cc4f283.jpeg.800.0.webp'), filename: 'tres_perros')
+
+el_bodegon = Space.create(name: 'El Bodegon (Panyu Lu)', address: '番禺路326号', category: 'Restaurant', sub_category: 'Western', access: 'outdoor', features: ['dog_bowl', 'indoor', 'outdoor'], longitude: 121.429524,latitude: 31.204483 )
+el_bodegon.image.attach(io: URI.open('https://images.smartshanghai.com.cn/uploads/compressed/2020/07/31/17248989-529d-42ce-b6fc-ad5b18987f72.jpeg.1360.906.webp'), filename: 'el_bodegon')
+
+fifty_eight = Space.create(name: 'Fifty 8º Grill', address: '浦东南路111号', category: 'Restaurant', sub_category: 'French', access: 'outdoor', features: ['dog_bowl', 'dog_food', 'outdoor'], longitude: 121.507783,latitude: 31.243555 )
+fifty_eight.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/30/7f9eec20-ca04-48e7-b474-71347e251dda.jpeg.800.0.webp'), filename: 'fifty_eight')
+
+w_hotel = Space.create(name: 'W Hotel', address: '旅顺路66号', category: 'Other', access: 'outdoor', features: ['dog_bowl', 'dog_food', 'indoor'], longitude: 121.496369,latitude: 31.248984 )
+w_hotel.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/09/10/50994c85-cc41-45ee-9240-fc692f038a80.jpeg.1125.0.webp'), filename: 'w_hotel')
+
+mandarin = Space.create(name: 'Mandarin Oriental', address: '浦东南路111号', category: 'Other', access: 'outdoor', features: ['dog_bowl', 'dog_food', 'indoor'], longitude: 121.507783,latitude: 31.243555 )
+mandarin.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/31/21a38ce0-9cc0-40a4-94d7-f752c9cb857c.jpeg.800.0.webp'), filename: 'mandarin')
+
+wework = Space.create(name: 'WeWork', address: '威海路696号', category: 'Other', access: 'outdoor', features: ['indoor', 'outdoor'], longitude: 121.457963,latitude: 31.226706 )
+wework.image.attach(io: URI.open('https://images.smartshanghai.com/uploads/compressed/2020/07/31/56866cc5-135c-459e-8350-9765b660d104.jpeg.800.0.webp'), filename: 'wework')
+
+naughty = Space.create(name: 'Naughty Family Pets', address: '虹桥路2393号', category: 'Vet', access: 'outdoor', features: ['dog_bowl', 'dog_food', 'indoor'], longitude: 121.36561,latitude: 31.190185 )
+naughty.image.attach(io: URI.open('https://www.thatsmags.com/image/view/201811/157.jpg'), filename: 'naughty')
+
+haiwan = Space.create(name: 'Haiwan Forest Park', address: '海湾国家森林公园', category: 'Park', access: 'outdoor', features: ['outdoor'], longitude: 121.690609,latitude: 30.861518 )
+haiwan.image.attach(io: URI.open('https://i0.wp.com/roadtriprascals.com/wp-content/uploads/2021/05/1417101049.jpg?w=1080&ssl=1'), filename: 'haiwan')
 
 Space.update_all published: true

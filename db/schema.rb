@@ -74,10 +74,10 @@ ActiveRecord::Schema.define(version: 2022_08_06_072205) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "features", default: [], array: true
-    t.boolean "published", default: false
     t.string "sub_category"
     t.float "longitude"
     t.float "latitude"
+    t.boolean "published", default: false
   end
 
   create_table "users", force: :cascade do |t|
